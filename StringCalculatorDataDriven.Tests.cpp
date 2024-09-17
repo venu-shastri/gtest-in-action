@@ -2,7 +2,7 @@
 #include <gtest/gtest.h>
 #include <vector>
 
-class TestPair{
+class TestDataPair{
 public:
     string input;
     int expectedValue;
@@ -12,12 +12,12 @@ public:
 
 
 TEST(StringCalculatorDataDrivenTestSuite,DataDrivenTestCase){
-  vector<TestPair> dataList;
-  TestPair pair_one { "",0};
-  TestPair pair_two { "0",0};
-  TestPair pair_three { "1",1};
-  TestPair pair_four { "1,2",3};
-  TestPair pair_five { "1,2,3",6};
+  vector<TestDataPair> dataList;
+  TestDataPair pair_one { "",0};
+  TestDataPair pair_two { "0",0};
+  TestDataPair pair_three { "1",1};
+  TestDataPair pair_four { "1,2",3};
+  TestDataPair pair_five { "1,2,3",6};
 
   dataList.push_back(pair_one);
   dataList.push_back(pair_two);
@@ -26,7 +26,7 @@ TEST(StringCalculatorDataDrivenTestSuite,DataDrivenTestCase){
   dataList.push_back(pair_five);
   
   / Iterate using a range-based for-loop
-    for (TestPair dataPair : dataList) {
+    for (TestDataPair dataPair : dataList) {
         int actualValue=Add(dataPair.input);
         ASSERT_EQ(actualValue,dataPair.expectedValue);
     }

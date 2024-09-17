@@ -1,5 +1,5 @@
 #include "StringCalculator.h"
-#inclcude <gtest/gtest.h>
+#include <gtest/gtest.h>
 
 TEST(StringCalculatorTestSuite,add_emptyInputString_ZeroIsExpected){
   //Arrange

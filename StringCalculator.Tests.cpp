@@ -4,7 +4,7 @@
 class StringCalculatorFixture:public testing::Test{
 protected:
     string input;
-    int exepctedValue;
+    int expectedValue;
     int actualValue;
 };
 

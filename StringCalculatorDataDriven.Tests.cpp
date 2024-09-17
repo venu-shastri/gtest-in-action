@@ -10,9 +10,33 @@ public:
       }
 };
 
+class StringCalculatorDataDrivenFixture:public testing::Test{
 
+protected:
+  vector<TestDataPair*> dataList;
+
+   //Before Each Test Case
+  void SetUp(){
+      dataList.push_back(new TestDataPair { "",0});
+      dataList.push_back(new TestDataPair { "0",0});
+      dataList.push_back(new TestDataPair { "1",1});
+      dataList.push_back(new TestDataPair { "1,2",3});
+      dataList.push_back(new TestDataPair { "1,2,3",6});
+  }
+  // After Each Test Case
+void TearDown(){
+    
+    
+};
+
+TEST_F(StringCalculatorDataDrivenFixture,DataDrivenTestCase){
+     for (TestDataPair* dataPairPtr : dataList) {
+        int actualValue=Add(dataPairPtr->input);
+        ASSERT_EQ(actualValue,dataPairPtr->expectedValue);
+    }
+}
 TEST(StringCalculatorDataDrivenTestSuite,DataDrivenTestCase){
-  vector<TestDataPair> dataList;
+
   TestDataPair pair_one { "",0};
   TestDataPair pair_two { "0",0};
   TestDataPair pair_three { "1",1};

@@ -1,1 +1,4 @@
-void alertInCelcius(float farenheit);
+//void alertInCelcius(float farenheit);
+//int getFailureCount();
+
+int alertInCelciusFacade(float farenheit);

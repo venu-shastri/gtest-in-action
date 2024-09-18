@@ -5,8 +5,11 @@ using testing::FloatEq;//matcher used to asset on method arguments
 using testing::Return; // Return value of mock function
 //Stub - Fake Dependency
 class NetworkAlerterStub:public INetworkAlerter{
+
 public:
+            float celciusArg;
       int  alert(float celcius) override{
+            celciusArg=celcius;
           return 500;
       }
 
@@ -22,6 +25,7 @@ TEST(NetworkAlerterTestSuite,StateBasedTest){
   NetworkAlerterStub stub;
     int failureCount=  alertInCelciusFacade(400,&stub);
     ASSERT_EQ(failureCount,1);
+      ASSERT_EQ(celciusArg,204.444);
 }
 TEST(NetworkAlerterTestSuite,InteractionTest){
     NetworkAlerterMock mock;

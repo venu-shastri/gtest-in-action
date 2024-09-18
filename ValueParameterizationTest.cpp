@@ -20,16 +20,29 @@ INSTANTIATE_TEST_SUITE_P(ValidStringCalculatorInputs,StringCalculatorParameterFi
   make_tuple("1,2,3", 6)
   
 ));
-
+int DisplayFunctionCallCount=0;
+int DisplayFunctionArg;
 void fakeDisplayFunction(int result){
-    
+    DisplayFunctionCallCount++;
+    DisplayFunctionArg=result;
+}
+void clearIntercatiomValues(){
+    DisplayFunctionCallCount=0;
+    DisplayFunctionArg=0;
 }
 TEST_P(StringCalculatorParameterFixture,ParameterizedTest){
       input= std::get<0>(GetParam());
       expectedValue= std::get<1>(GetParam());
-    Add(input,&fakeDisplayFunction);
+     Add(input,&fakeDisplayFunction);
      // actualValue=Add(input);
-     // ASSERT_EQ(actualValue,expectedValue);
+     //ASSERT_EQ(actualValue,expectedValue);
+}
+TEST(InteractTestSuite,InteractionTest){
+     string input="";
+     int expectedValue=0;
+     Add(input,&fakeDisplayFunction);
+     ASSERT_EQ(DisplayFunctionCallCount,1);
+    ASSERT_EQ(DisplayFunctionArg,0);
 }
 
 

@@ -14,9 +14,9 @@ void ResetIntercationValues(){
 }
 TEST(InteractionTestSuite,InteractionTest){
 
-  string input="";
+  string input="1,2";
   Add(input,&MockDisplayFunction);
   EXPECT_EQ(DisplayFunctionCallCount,1);
-  EXPECT_EQ(DisplayFunctionArg,0);
+  EXPECT_EQ(DisplayFunctionArg,3);
   ResetIntercationValues();
 }

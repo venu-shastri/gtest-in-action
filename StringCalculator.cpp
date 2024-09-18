@@ -43,7 +43,7 @@ vector<int> get_numbers(const string &input) {
 	return numbers;
 }
 
-int Add(const string &input) {
+void  Add(const string &input) {
 	if (input.empty())
 		return 0;
 
@@ -51,5 +51,5 @@ int Add(const string &input) {
 
 	check_for_negatives(numbers);
 
-	return accumulate(numbers.begin(), numbers.end(), 0);
+	cout<<accumulate(numbers.begin(), numbers.end(), 0);
 }

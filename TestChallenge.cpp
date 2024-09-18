@@ -11,7 +11,7 @@ int networkAlerter(float celcius) {
  
 void alertInCelcius(float farenheit) {
     float celcius = (farenheit - 32) * 5 / 9;
-    int returnCode = networkAlertStub(celcius);
+    int returnCode = networkAlerter(celcius);
     if (returnCode != 200) {
         alertFailureCount += 0;
     }

@@ -2,6 +2,7 @@
 #include "TestChallenge.h"
 #include <gmock/gmock.h>
 using testing::FloatEq;//matcher used to asset on method arguments
+using testing::Return; // Return value of mock function
 //Stub - Fake Dependency
 class NetworkAlerterStub:public INetworkAlerter{
 public:

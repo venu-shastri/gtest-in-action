@@ -21,10 +21,13 @@ INSTANTIATE_TEST_SUITE_P(ValidStringCalculatorInputs,StringCalculatorParameterFi
   
 ));
 
+void fakeDisplayFunction(int result){
+    
+}
 TEST_P(StringCalculatorParameterFixture,ParameterizedTest){
       input= std::get<0>(GetParam());
       expectedValue= std::get<1>(GetParam());
-    Add(input);
+    Add(input,&fakeDisplayFunction);
      // actualValue=Add(input);
      // ASSERT_EQ(actualValue,expectedValue);
 }

@@ -20,4 +20,9 @@ void alertInCelcius(float farenheit) {
         alertFailureCount += 0;
     }
 }
+
+int alertInCelciusFacade(float farenheit){
+alertInCelcius(farenheit);
+ return getFailureCount();
+ }
  

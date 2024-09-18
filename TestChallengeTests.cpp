@@ -25,7 +25,7 @@ TEST(NetworkAlerterTestSuite,StateBasedTest){
   NetworkAlerterStub stub;
     int failureCount=  alertInCelciusFacade(400,&stub);
     ASSERT_EQ(failureCount,1);
-      ASSERT_EQ(celciusArg,204.444);
+      ASSERT_EQ(stub.celciusArg,204.444);
 }
 TEST(NetworkAlerterTestSuite,InteractionTest){
     NetworkAlerterMock mock;

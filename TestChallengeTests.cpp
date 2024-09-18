@@ -25,13 +25,13 @@ TEST(NetworkAlerterTestSuite,StateBasedTest){
   NetworkAlerterStub stub;
     int failureCount=  alertInCelciusFacade(400,&stub);
     ASSERT_EQ(failureCount,1);
-      ASSERT_EQ(stub.celciusArg,204.444);
+      ASSERT_EQ(stub.celciusArg,204.444f);
 }
 TEST(NetworkAlerterTestSuite,InteractionTest){
     NetworkAlerterMock mock;
       // EXPECT_CALL (mockObject,method(Matcher).Times(Frequency).WillOnce/Repeat(Action)
       
-  EXPECT_CALL(mock,alert(FloatEq(204.444))).WillOnce(Return(500));
+  EXPECT_CALL(mock,alert(FloatEq(204.444f))).WillOnce(Return(500));
     int failureCount=  alertInCelciusFacade(400,&mock);
     ASSERT_EQ(failureCount,1);
     

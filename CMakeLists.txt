@@ -19,7 +19,7 @@ add_compile_options("--coverage")
 add_executable(
   cleancode
   StringCalculator.cpp
-  ValueParameterizationTest.cpp
+  InteractionTests.cpp
  )
 target_link_libraries(
   cleancode
